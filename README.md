@@ -4,7 +4,7 @@ A Next.js 14 application where users describe UI styles in natural language and 
 
 ## 🎥 Demo
 
-https://github.com/user-attachments/assets/9a0232d1-2dc7-47b9-b97a-908dded4fc39
+https://github.com/user-attachments/assets/de0c70a2-4fc8-42d1-a87e-076ec9891d27
 
 > Type any design prompt and watch the website transform in real-time with 3D visuals, cinematic motion, and premium aesthetics!
 
