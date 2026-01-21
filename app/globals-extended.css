@@ -1,0 +1,287 @@
+/**
+ * Extended animations for physics, 3D, AR, sound-reactive, and theme evolution
+ * Append this to globals.css or import separately
+ */
+
+/* ============================================
+   PHYSICS-BASED ANIMATIONS
+   ============================================ */
+
+/* Gravity drop with bounce */
+@keyframes physics-drop {
+  0% {
+    transform: translateY(-100px);
+    animation-timing-function: ease-in;
+  }
+  40% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+  55% {
+    transform: translateY(-20px);
+    animation-timing-function: ease-in;
+  }
+  70% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+  80% {
+    transform: translateY(-8px);
+    animation-timing-function: ease-in;
+  }
+  90% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Spring bounce */
+@keyframes spring {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  75% {
+    transform: scale(0.98);
+  }
+}
+
+/* Physics motion */
+.physics .motion-element {
+  animation: physics-drop 2s ease-out;
+}
+
+.physics .motion-element:hover {
+  animation: spring 0.6s ease-in-out;
+}
+
+/* ============================================
+   3D DEPTH & PERSPECTIVE
+   ============================================ */
+
+@keyframes rotate-3d {
+  0% {
+    transform: perspective(1000px) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(1000px) rotateY(360deg);
+  }
+}
+
+@keyframes card-flip {
+  0%, 100% {
+    transform: perspective(1000px) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(1000px) rotateY(180deg);
+  }
+}
+
+/* 3D transform layers */
+html.\\33 D {
+  perspective: 1000px;
+}
+
+.\\33 D .motion-element {
+  transform: translateZ(50px);
+  animation: card-flip 8s ease-in-out infinite;
+}
+
+.\\33 D .motion-element:nth-child(2) {
+  transform: translateZ(100px);
+  animation-delay: 1s;
+}
+
+.\\33 D .motion-element:nth-child(3) {
+  transform: translateZ(150px);
+  animation-delay: 2s;
+}
+
+/* ============================================
+   AR / HOLOGRAPHIC EFFECTS
+   ============================================ */
+
+@keyframes hologram-scan {
+  0%, 100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 0% 100%;
+  }
+}
+
+@keyframes hologram-glitch {
+  0%, 100% {
+    clip-path: inset(0 0 0 0);
+    transform: translate(0, 0);
+  }
+  20% {
+    clip-path: inset(40% 0 40% 0);
+    transform: translate(-2px, -2px);
+  }
+  40% {
+    clip-path: inset(20% 0 60% 0);
+    transform: translate(2px, 2px);
+  }
+  60% {
+    clip-path: inset(70% 0 10% 0);
+    transform: translate(-1px, 1px);
+  }
+  80% {
+    clip-path: inset(10% 0 70% 0);
+    transform: translate(1px, -1px);
+  }
+}
+
+.AR .motion-element {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(59, 130, 246, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 100% 200%;
+  animation: hologram-scan 3s linear infinite;
+}
+
+.AR .motion-element::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--accent-color);
+  mix-blend-mode: screen;
+  opacity: 0.1;
+  animation: hologram-glitch 5s infinite;
+}
+
+/* ============================================
+   INTERACTIVE ANIMATIONS
+   ============================================ */
+
+/* Scroll-driven fade in */
+@keyframes scroll-fade {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.interactive .motion-element {
+  animation: scroll-fade 0.6s ease-out forwards;
+}
+
+.interactive .motion-element:hover {
+  transform: scale(1.05) translateZ(20px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ============================================
+   SOUND-REACTIVE VISUALIZATIONS
+   ============================================ */
+
+@keyframes sound-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes sound-wave {
+  0% {
+    box-shadow: 0 0 0 0 var(--primary-color);
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+  }
+}
+
+/* Subtle sound reactive */
+[data-sound-reactive="subtle"] .motion-element {
+  animation: sound-pulse 0.6s ease-in-out infinite;
+}
+
+/* Full sound reactive */
+[data-sound-reactive="full"] {
+  background: radial-gradient(
+    circle at 50% 50%,
+    var(--primary-color) 0%,
+    var(--bg-color) 50%
+  );
+  background-size: 200% 200%;
+  animation: sound-wave 0.8s ease-out infinite;
+}
+
+[data-sound-reactive="full"] .motion-element {
+  animation: sound-pulse 0.4s ease-in-out infinite;
+}
+
+/* ============================================
+   MORPHING BUTTON STYLES
+   ============================================ */
+
+@keyframes button-morph {
+  0%, 100% {
+    border-radius: 50px;
+  }
+  25% {
+    border-radius: 5px;
+  }
+  50% {
+    border-radius: 50%;
+  }
+  75% {
+    border-radius: 20px;
+  }
+}
+
+[data-button-style="morphing"] button,
+[data-button-style="morphing"] [role="button"] {
+  animation: button-morph 4s ease-in-out infinite;
+  transition: all 0.3s;
+}
+
+/* ============================================
+   THEME EVOLUTION ANIMATIONS
+   ============================================ */
+
+@keyframes theme-fade {
+  from {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+[data-theme-evolution="gradual"] {
+  animation: theme-fade 10s ease-in-out forwards;
+}
+
+[data-theme-evolution="looped"] {
+  animation: theme-fade 5s ease-in-out infinite alternate;
+}
+
+[data-theme-evolution="story-driven"] {
+  animation: theme-fade 8s ease-in-out forwards;
+}

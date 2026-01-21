@@ -1,0 +1,457 @@
+/**
+ * Cinematic & 3D Design System - Premium Visual Styles
+ * Glassmorphism, Holographic, Material Styles, Lighting, VFX
+ */
+
+/* ============================================
+   GLASSMORPHISM & MATERIAL STYLES
+   ============================================ */
+
+.illustration-glassmorphism * {
+  backdrop-filter: blur(var(--blur-level, 16px));
+  -webkit-backdrop-filter: blur(var(--blur-level, 16px));
+}
+
+[data-material-style="glass"] .motion-element,
+.illustration-glassmorphism .motion-element {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(var(--blur-level, 16px));
+  -webkit-backdrop-filter: blur(var(--blur-level, 16px));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+}
+
+[data-material-style="glossy"] .motion-element {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+[data-material-style="metallic"] .motion-element {
+  background: linear-gradient(145deg, #d4d4d8 0%, #a1a1aa 50%, #d4d4d8 100%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+[data-material-style="matte"] .motion-element {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+[data-material-style="plastic"] .motion-element {
+  background: var(--primary-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   HOLOGRAPHIC EFFECTS
+   ============================================ */
+
+.illustration-holographic::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 0, 255, 0.1) 0%,
+    rgba(0, 255, 255, 0.1) 25%,
+    rgba(255, 255, 0, 0.1) 50%,
+    rgba(0, 255, 0, 0.1) 75%,
+    rgba(255, 0, 255, 0.1) 100%
+  );
+  background-size: 400% 400%;
+  animation: holographic-shift 10s ease infinite;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: screen;
+}
+
+@keyframes holographic-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.illustration-holographic .motion-element {
+  position: relative;
+  background: linear-gradient(135deg,
+    rgba(255, 0, 255, 0.2) 0%,
+    rgba(0, 255, 255, 0.2) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 0 20px rgba(255, 0, 255, 0.3),
+    0 0 40px rgba(0, 255, 255, 0.2),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   3D ILLUSTRATIONS
+   ============================================ */
+
+.illustration-abstract-3d .motion-element {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  animation: float-3d 6s ease-in-out infinite;
+}
+
+@keyframes float-3d {
+  0%, 100% {
+    transform: translateY(0) rotateX(0deg) rotateY(0deg);
+  }
+  33% {
+    transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+  }
+  66% {
+    transform: translateY(-10px) rotateX(-5deg) rotateY(-5deg);
+  }
+}
+
+.illustration-gradient-3d {
+  background: linear-gradient(135deg,
+    var(--primary-color) 0%,
+    var(--accent-color) 50%,
+    var(--highlight-color) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.illustration-cinematic-3d .motion-element {
+  transform-style: preserve-3d;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 40px 80px rgba(0, 0, 0, 0.2);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.illustration-cinematic-3d .motion-element:hover {
+  transform: translateY(-10px) rotateX(5deg) scale(1.02);
+}
+
+/* ============================================
+   BACKGROUND VISUALS
+   ============================================ */
+
+[data-background-visual="gradient"]::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg,
+    var(--bg-color) 0%,
+    color-mix(in srgb, var(--bg-color) 90%, var(--primary-color)) 100%
+  );
+  z-index: -1;
+}
+
+[data-background-visual="abstract-shapes"]::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, var(--primary-color) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, var(--accent-color) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, var(--highlight-color) 0%, transparent 60%);
+  opacity: 0.1;
+  filter: blur(60px);
+  z-index: -1;
+  animation: shape-morph 20s ease-in-out infinite;
+}
+
+@keyframes shape-morph {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(180deg);
+  }
+}
+
+[data-background-visual="particle-field"]::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, var(--primary-color), transparent),
+    radial-gradient(2px 2px at 60% 70%, var(--accent-color), transparent),
+    radial-gradient(1px 1px at 50% 50%, var(--highlight-color), transparent),
+    radial-gradient(1px 1px at 80% 10%, var(--primary-color), transparent),
+    radial-gradient(2px 2px at 90% 60%, var(--accent-color), transparent);
+  background-size: 200% 200%, 300% 300%, 250% 250%, 280% 280%, 220% 220%;
+  background-position: 0% 0%, 100% 100%, 50% 50%, 0% 100%, 100% 0%;
+  animation: particle-float 30s linear infinite;
+  opacity: 0.6;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes particle-float {
+  0% {
+    background-position: 0% 0%, 100% 100%, 50% 50%, 0% 100%, 100% 0%;
+  }
+  100% {
+    background-position: 100% 100%, 0% 0%, 75% 75%, 100% 0%, 0% 100%;
+  }
+}
+
+[data-background-visual="3d-scene"] {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* ============================================
+   LIGHTING STYLES
+   ============================================ */
+
+[data-lighting-style="soft"] .motion-element {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+[data-lighting-style="dramatic"] .motion-element {
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 -5px 20px rgba(255, 255, 255, 0.1);
+}
+
+[data-lighting-style="neon"] .motion-element {
+  box-shadow:
+    0 0 10px var(--primary-color),
+    0 0 20px var(--primary-color),
+    0 0 30px var(--accent-color);
+  border: 1px solid var(--primary-color);
+}
+
+[data-lighting-style="studio"] .motion-element {
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.15),
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+[data-lighting-style="cinematic"] .motion-element {
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.3),
+    0 10px 20px rgba(0, 0, 0, 0.2),
+    inset 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   VFX - PARTICLE EFFECTS
+   ============================================ */
+
+[data-particle-effects="subtle"]::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(1px 1px at 25% 25%, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 75% 75%, rgba(255, 255, 255, 0.5), transparent);
+  background-size: 200px 200px;
+  animation: particle-drift 20s linear infinite;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.3;
+}
+
+[data-particle-effects="ambient"]::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(2px 2px at 20% 40%, var(--primary-color), transparent),
+    radial-gradient(1px 1px at 80% 20%, var(--accent-color), transparent),
+    radial-gradient(1px 1px at 40% 80%, var(--highlight-color), transparent),
+    radial-gradient(2px 2px at 60% 60%, var(--primary-color), transparent);
+  background-size: 300px 300px, 200px 200px, 250px 250px, 180px 180px;
+  animation: particle-drift 25s linear infinite;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.5;
+}
+
+[data-particle-effects="rich"]::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(3px 3px at 10% 20%, var(--primary-color), transparent),
+    radial-gradient(2px 2px at 90% 80%, var(--accent-color), transparent),
+    radial-gradient(2px 2px at 30% 70%, var(--highlight-color), transparent),
+    radial-gradient(1px 1px at 70% 30%, var(--primary-color), transparent),
+    radial-gradient(2px 2px at 50% 50%, var(--accent-color), transparent),
+    radial-gradient(1px 1px at 85% 15%, var(--highlight-color), transparent);
+  background-size: 250px 250px, 300px 300px, 200px 200px, 180px 180px, 220px 220px, 150px 150px;
+  animation: particle-drift 30s linear infinite;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.7;
+}
+
+@keyframes particle-drift {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  100% {
+    transform: translateY(-100px) translateX(50px);
+  }
+}
+
+/* ============================================
+   VFX - GLOW EFFECTS
+   ============================================ */
+
+[data-glow-effects="soft"] .motion-element {
+  box-shadow: 0 0 20px rgba(var(--primary-color), 0.3);
+}
+
+[data-glow-effects="strong"] .motion-element {
+  box-shadow:
+    0 0 20px var(--primary-color),
+    0 0 40px var(--accent-color),
+    0 0 60px var(--primary-color);
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 20px var(--primary-color),
+      0 0 40px var(--accent-color),
+      0 0 60px var(--primary-color);
+  }
+  50% {
+    box-shadow:
+      0 0 30px var(--primary-color),
+      0 0 60px var(--accent-color),
+      0 0 90px var(--primary-color);
+  }
+}
+
+/* ============================================
+   VFX - NOISE TEXTURE
+   ============================================ */
+
+[data-noise-texture="film"]::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: overlay;
+}
+
+[data-noise-texture="grain"]::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='turbulence' baseFrequency='1.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: multiply;
+}
+
+/* ============================================
+   SCROLL BEHAVIORS
+   ============================================ */
+
+.scroll-parallax .motion-element {
+  will-change: transform;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-layered .motion-element:nth-child(1) {
+  transform: translateZ(0px);
+}
+
+.scroll-layered .motion-element:nth-child(2) {
+  transform: translateZ(20px);
+}
+
+.scroll-layered .motion-element:nth-child(3) {
+  transform: translateZ(40px);
+}
+
+.scroll-immersive {
+  perspective: 2000px;
+  transform-style: preserve-3d;
+}
+
+.scroll-immersive .motion-element {
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================================
+   HOVER EFFECTS
+   ============================================ */
+
+[data-hover-effects="glow"] .motion-element:hover {
+  box-shadow: 0 0 30px var(--primary-color);
+}
+
+[data-hover-effects="lift"] .motion-element:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+[data-hover-effects="morph"] .motion-element:hover {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  transform: scale(1.05);
+}
+
+/* ============================================
+   MOTION INTENSITY
+   ============================================ */
+
+:root {
+  --motion-scale: var(--motion-intensity, 1);
+}
+
+.motion-element {
+  transition-duration: calc(var(--animation-duration) * var(--motion-scale));
+}
+
+/* ============================================
+   DEPTH SYSTEM
+   ============================================ */
+
+[data-depth="soft"] .motion-element {
+  box-shadow: 0 var(--depth) calc(var(--depth) * 2) rgba(0, 0, 0, 0.1);
+}
+
+[data-depth="deep"] .motion-element {
+  box-shadow: 0 var(--depth) calc(var(--depth) * 3) rgba(0, 0, 0, 0.2);
+}
