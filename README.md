@@ -4,7 +4,7 @@ A Next.js 14 application where users describe UI styles in natural language and 
 
 ## Demo Video
 
-![Demo Video](Demo%20Video.mp4)
+https://github.com/amaancoderx/MorphoUI/assets/197404982/demo-video.mp4
 
 > **Note:** The video shows MorphoUI in action - type a design prompt and watch the website transform in real-time!
 
