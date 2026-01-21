@@ -2,10 +2,11 @@
 
 A Next.js 14 application where users describe UI styles in natural language and the website updates its design LIVE without refresh.
 
-## Demo Video
+## 🎥 Demo
 
+**Live Demo:** [morphoui.vercel.app](https://morphoui.vercel.app) *(Deploy to Vercel to get your live URL)*
 
-> **Note:** The video shows MorphoUI in action - type a design prompt and watch the website transform in real-time!
+> Type any design prompt and watch the website transform in real-time with 3D visuals, cinematic motion, and premium aesthetics!
 
 ## Project Structure
 
