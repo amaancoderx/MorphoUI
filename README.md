@@ -4,6 +4,8 @@ A Next.js 14 application where users describe UI styles in natural language and 
 
 ## 🎥 Demo
 
+https://github.com/user-attachments/assets/9a0232d1-2dc7-47b9-b97a-908dded4fc39
+
 **Live Demo:** [morphoui.vercel.app](https://morphoui.vercel.app) *(Deploy to Vercel to get your live URL)*
 
 > Type any design prompt and watch the website transform in real-time with 3D visuals, cinematic motion, and premium aesthetics!
