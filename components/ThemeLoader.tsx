@@ -17,7 +17,7 @@ export function ThemeLoader() {
     const urlTheme = loadThemeFromURL();
     if (urlTheme) {
       setTokens(urlTheme);
-      console.log("Loaded theme from URL:", urlTheme.themeID);
+      console.log("Loaded theme from URL:", urlTheme.themeMetadata?.themeID);
     }
   }, [setTokens]);
 

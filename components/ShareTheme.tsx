@@ -33,7 +33,7 @@ export function ShareTheme() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `theme-${tokens.themeID || "custom"}.json`;
+    a.download = `theme-${tokens.themeMetadata?.themeID || "custom"}.json`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -98,11 +98,11 @@ export function ShareTheme() {
         </button>
       </div>
 
-      {tokens.themeID && (
+      {tokens.themeMetadata?.themeID && (
         <div className="mt-4 p-3 rounded text-xs opacity-70" style={{ backgroundColor: "rgba(0,0,0,0.05)" }}>
-          <div><strong>Theme ID:</strong> {tokens.themeID}</div>
-          {tokens.timestamp && <div><strong>Created:</strong> {new Date(tokens.timestamp).toLocaleString()}</div>}
-          {tokens.version && <div><strong>Version:</strong> {tokens.version}</div>}
+          <div><strong>Theme ID:</strong> {tokens.themeMetadata.themeID}</div>
+          {tokens.themeMetadata.timestamp && <div><strong>Created:</strong> {new Date(tokens.themeMetadata.timestamp).toLocaleString()}</div>}
+          {tokens.themeMetadata.version && <div><strong>Version:</strong> {tokens.themeMetadata.version}</div>}
         </div>
       )}
     </div>

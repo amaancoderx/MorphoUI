@@ -22,7 +22,7 @@ export function loadThemeFromURL(): DesignTokens | null {
     const tokens = JSON.parse(decoded) as DesignTokens;
 
     // Validate it has required fields
-    if (tokens.theme && tokens.backgroundColor && tokens.textColor) {
+    if (tokens.theme && tokens.colorPalette && tokens.typography) {
       return tokens;
     }
     return null;
@@ -49,7 +49,7 @@ export async function loadThemeFromFile(file: File): Promise<DesignTokens | null
     const tokens = JSON.parse(text) as DesignTokens;
 
     // Validate required fields
-    if (tokens.theme && tokens.backgroundColor && tokens.textColor) {
+    if (tokens.theme && tokens.colorPalette && tokens.typography) {
       return tokens;
     }
     return null;
@@ -64,9 +64,11 @@ export async function loadThemeFromFile(file: File): Promise<DesignTokens | null
  */
 export function remixTheme(originalTokens: DesignTokens, newPrompt: string): Partial<DesignTokens> {
   return {
-    themeID: crypto.randomUUID(),
-    timestamp: new Date().toISOString(),
-    version: (originalTokens.version || 1) + 1,
-    promptUsed: newPrompt,
+    themeMetadata: {
+      themeID: crypto.randomUUID(),
+      timestamp: new Date().toISOString(),
+      version: (originalTokens.themeMetadata?.version || 1) + 1,
+      promptUsed: newPrompt,
+    },
   };
 }
