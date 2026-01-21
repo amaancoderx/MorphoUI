@@ -2,7 +2,7 @@
 
 A Next.js 14 application where users describe UI styles in natural language and the website updates its design LIVE without refresh.
 
-## 🎥 Demo
+## 🎥 Demo Video
 
 https://github.com/user-attachments/assets/de0c70a2-4fc8-42d1-a87e-076ec9891d27
 
