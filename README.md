@@ -2,6 +2,12 @@
 
 A Next.js 14 application where users describe UI styles in natural language and the website updates its design LIVE without refresh.
 
+## Demo Video
+
+https://github.com/user-attachments/assets/demo-video.mp4
+
+> **Note:** The video shows MorphoUI in action - type a design prompt and watch the website transform in real-time!
+
 ## Project Structure
 
 ```
